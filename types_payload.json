@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Poker",
+    "info": "https://en.wikipedia.org/wiki/Poker"
+  },
+  {
+    "name": "Solitaire",
+    "info": "https://en.wikipedia.org/wiki/Patience_(game)"
+  },
+  {
+    "name": "Chess game",
+    "info": "https://en.wikipedia.org/wiki/Chess"
+  },
+  {
+    "name": "Blackjack",
+    "info": "https://en.wikipedia.org/wiki/Blackjack"
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Google Solitaire",
+    "description": "Solitaire card game, provided by Google",
+    "url": "https://www.google.com/logos/fnbx/solitaire/standalone.html",
+    "type": 2
+  },
+  {
+    "name": "Free poker",
+    "description": "Sample Texas Holdem poker",
+    "url": "https://www.247freepoker.com/",
+    "type": 1
+  },
+  {
+    "name": "Chess game",
+    "description": "Simple chess game against AI bot of a default difficulty.",
+    "url": "https://fritz.chessbase.com",
+    "type": 3
+  },
+  {
+    "name": "Vlackjack",
+    "description": "Blackjack game with a built-in strategy hint.",
+    "url": "https://kevinleedrum.github.io/vlackjack/",
+    "type": 4
+  },
+  {
+    "name": "Mini chess",
+    "description": "Chess game, which allows to play against AI bot with various difficulty level.",
+    "url": "https://playpager.com/embed/chess/index.html",
+    "type": 3
+  },
+  {
+    "name": "Sample blackjack game",
+    "description": "Blackjack game. No built-in hints or assist. Instant play",
+    "url": "https://playpager.com/play-blackjack/index.html",
+    "type": 4
+  },
+  {
+    "name": "Advanced Solitaire game",
+    "description": "Online solitaire game with built-in hints and advanced settings.",
+    "url": "https://online-solitaire.com/52x2stzpm1",
+    "type": 2
+  }
+]

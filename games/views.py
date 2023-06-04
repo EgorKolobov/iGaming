@@ -4,7 +4,7 @@ from .models import Game, Type
 from .serializers import GameSerializer, TypeSerializer, NoTypeGameSerializer
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
-from rest_framework.permissions import IsAuthenticated, IsAdminUser, AllowAny
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication, TokenAuthentication
 from drf_yasg.utils import swagger_auto_schema
 
@@ -44,9 +44,15 @@ class TypeList(generics.ListCreateAPIView):
     def get(self, request, *args, **kwargs):
         return super().get(request, *args, **kwargs)
 
-    @swagger_auto_schema(tags=["Type"])
+    @swagger_auto_schema(tags=["Type"], operation_description='Adds new game types.'
+                                                              ' It is also possible to add a multiple new types '
+                                                              'at a time.')
     def post(self, request, *args, **kwargs):
-        return super().post(request, *args, **kwargs)
+        serializer = self.get_serializer(data=request.data, many=isinstance(request.data, list))
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
 
 class TypeDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -94,9 +100,15 @@ class GameList(generics.ListCreateAPIView):
     def get(self, request, *args, **kwargs):
         return super().get(request, *args, **kwargs)
 
-    @swagger_auto_schema(tags=["Game"], operation_description='Adds multiple new games at a time')
+    @swagger_auto_schema(tags=["Game"], operation_description='Adds new games.'
+                                                              ' It is also possible to add a multiple new games'
+                                                              ' at a time.')
     def post(self, request, *args, **kwargs):
-        return super().post(request, *args, **kwargs)
+        serializer = self.get_serializer(data=request.data, many=isinstance(request.data, list))
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
 
 class GameDetail(generics.RetrieveUpdateDestroyAPIView):

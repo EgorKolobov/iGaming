@@ -1,6 +1,6 @@
 import json
 from django.core.management.base import BaseCommand
-from games.models import Game
+from games.models import Game, Type
 
 
 class Command(BaseCommand):
@@ -16,7 +16,9 @@ class Command(BaseCommand):
             games = json.load(file)
 
         for game_data in games:
-            game = Game(**game_data)
+            type_id = game_data.pop('type')
+            game_type = Type.objects.get(pk=type_id)
+            game = Game(**game_data, type=game_type)
             game.save()
 
         self.stdout.write(self.style.SUCCESS('Games imported successfully!'))
